@@ -13,6 +13,17 @@ describe "Timer" do
   before(:each) do
     @timer = Timer.new
   end
+  describe 'padded' do
+     it 'pads zero' do
+       expect(@timer.padded(0)).to eq('00')
+     end
+     it 'pads one' do
+       expect(@timer.padded(1)).to eq('01')
+     end
+     it "doesn't pad a two-digit number" do
+       expect(@timer.padded(12)).to eq('12')
+     end
+   end
 
   it "should initialize to 0 seconds" do
     expect(@timer.seconds).to eq(0)
